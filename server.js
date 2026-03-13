@@ -6,7 +6,15 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.get("/api/salla/callback", async (req,res)=>{
 
+const code = req.query.code
+
+console.log("Salla Auth Code:",code)
+
+res.send("تم ربط متجر سلة بنجاح")
+
+})
 const DB = "./users.json";
 
 app.post("/register",(req,res)=>{
