@@ -21,7 +21,19 @@ fs.writeFileSync(DB,JSON.stringify(users));
 
 res.json({message:"تم إنشاء الحساب"});
 
-});
+});app.post("/add-product",(req,res)=>{
+
+const {name,price,image} = req.body
+
+let products = JSON.parse(fs.readFileSync("./products.json"))
+
+products.push({name,price,image})
+
+fs.writeFileSync("./products.json",JSON.stringify(products))
+
+res.json({success:true})
+
+})
 
 app.post("/login",(req,res)=>{
 
