@@ -1,7 +1,7 @@
 async function login(){
 
-const email = document.querySelector("#email").value;
-const password = document.querySelector("#password").value;
+const email = document.querySelector("#email").value
+const password = document.querySelector("#password").value
 
 const res = await fetch("/login",{
 
@@ -13,17 +13,19 @@ headers:{
 
 body:JSON.stringify({email,password})
 
-});
+})
 
-const data = await res.json();
+const data = await res.json()
 
 if(data.success){
 
-alert("تم تسجيل الدخول");
+localStorage.setItem("user",email)
+
+window.location="dashboard.html"
 
 }else{
 
-alert("بيانات خاطئة");
+alert("بيانات الدخول غير صحيحة")
 
 }
 
