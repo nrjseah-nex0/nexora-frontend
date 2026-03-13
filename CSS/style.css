@@ -1,14 +1,35 @@
 body{
-font-family: Arial;
-text-align:center;
-margin-top:100px;
+    margin:0;
+    background:black;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
-input{
-padding:10px;
-width:200px;
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
 }
 
-button{
-padding:10px 20px;
+.logo{
+    font-size:70px;
+    letter-spacing:3px;
+}
+
+.gold{
+    background:linear-gradient(45deg,#d4af37,#f5e6a8);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.silver{
+    color:#c0c0c0;
+}
+
+.tagline{
+    color:white;
+    margin-top:10px;
+    font-size:20px;
+    opacity:0.8;
 }
