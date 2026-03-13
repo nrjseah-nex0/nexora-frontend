@@ -1,65 +1,100 @@
 <!DOCTYPE html>
 <html lang="ar">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Nexora Login</title>
+<title>NEXORA</title>
 
 <style>
 
-body{
+*{
 margin:0;
-font-family:Arial;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+/* الخلفية السوداء */
+body{
+background:#000;
 height:100vh;
+overflow:hidden;
 display:flex;
 justify-content:center;
 align-items:center;
-background:linear-gradient(135deg,#6e6de7,#7b4fe0);
+color:white;
 }
 
-.card{
+/* طبقة النجوم */
+.stars{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:url("https://www.transparenttextures.com/patterns/stardust.png");
+animation:moveStars 200s linear infinite;
+z-index:-2;
+}
 
-background:rgba(255,255,255,0.2);
-padding:40px;
-border-radius:20px;
-width:300px;
+/* اللمعات */
+.twinkling{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:radial-gradient(white 1px, transparent 1px);
+background-size:80px 80px;
+opacity:0.15;
+animation:twinkle 6s ease-in-out infinite alternate;
+z-index:-1;
+}
+
+/* حركة النجوم */
+@keyframes moveStars{
+from{transform:translateY(0);}
+to{transform:translateY(-1000px);}
+}
+
+/* حركة اللمعان */
+@keyframes twinkle{
+from{opacity:0.05;}
+to{opacity:0.25;}
+}
+
+/* المحتوى */
+.container{
 text-align:center;
-backdrop-filter:blur(10px);
-
 }
 
 h1{
-margin-bottom:10px;
+font-size:60px;
+letter-spacing:5px;
+margin-bottom:30px;
 }
 
-input{
-
-width:100%;
-padding:12px;
-margin:10px 0;
-border:none;
-border-radius:10px;
-
+/* الأزرار */
+.buttons{
+display:flex;
+gap:20px;
+justify-content:center;
+flex-wrap:wrap;
 }
 
 button{
-
-width:100%;
-padding:12px;
-border:none;
-border-radius:10px;
-background:#4f67ff;
+background:transparent;
+border:1px solid white;
 color:white;
+padding:15px 30px;
 font-size:16px;
 cursor:pointer;
-
+transition:0.3s;
 }
 
 button:hover{
-opacity:0.9;
+background:white;
+color:black;
 }
 
 </style>
@@ -68,55 +103,20 @@ opacity:0.9;
 
 <body>
 
-<div class="card">
+<div class="stars"></div>
+<div class="twinkling"></div>
 
-<h1>NEXORA</h1>
+<div class="container">
 
-<p>تسجيل الدخول</p>
+<h1>NEXORA&RB</h1>
 
-<input type="email" placeholder="البريد الالكتروني">
-
-<input type="password" placeholder="كلمة المرور">
-
-<button onclick="login()">تسجيل الدخول</button>
-<!-- زر ربط متجر سلة -->
-<button onclick="connect()">ربط متجر سلة</button>
-
-<script>
-function connect(){
-  // الرابط الكامل لتسجيل الدخول في Salla مع Client ID و Redirect URI
-  const clientID = "7e42b932-6690-477d-aba0-a9fca78047e5";
-  const redirectURI = encodeURIComponent("https://nexurarm-25uustts.manus.space/api/salla/callback");
-  
-  const oauthURL = `https://accounts.salla.sa/oauth2/auth?client_id=${clientID}&redirect_uri=${redirectURI}&response_type=code`;
-  
-  // تحويل المستخدم مباشرة إلى صفحة تسجيل الدخول في Salla
-  window.location.href = oauthURL;
-}
-</script>
+<div class="buttons">
+<button>إنشاء حساب</button>
+<button>تسجيل دخول →</button>
+<button>منصة تسويقية بالذكاء الاصطناعي →</button>
 </div>
 
-<script>
-
-function login(){
-
-const email=document.querySelector("input[type='email']").value
-const password=document.querySelector("input[type='password']").value
-
-if(email && password){
-
-window.location.href="dashboard.html"
-
-}else{
-
-alert("الرجاء إدخال البريد وكلمة المرور")
-
-}
-
-}
-
-</script>
+</div>
 
 </body>
-
-</html>
+</html>؟
