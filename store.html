@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+
+<meta charset="UTF-8">
+<title>متجر Nexora</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f5f5f5;
+padding:40px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:10px;
+text-align:center;
+}
+
+img{
+width:100%;
+border-radius:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>متجر Nexora</h1>
+
+<div id="products" class="grid"></div>
+
+<script>
+
+async function loadProducts(){
+
+const res = await fetch("/products.json")
+
+const products = await res.json()
+
+const container = document.querySelector("#products")
+
+products.forEach(p=>{
+
+container.innerHTML += `
+<div class="card">
+
+<img src="${p.image}">
+
+<h3>${p.name}</h3>
+
+<p>${p.price}$</p>
+
+</div>
+`
+
+})
+
+}
+
+loadProducts()
+
+</script>
+
+</body>
+
+</html>
