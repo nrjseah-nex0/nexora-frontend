@@ -1,44 +1,30 @@
-document.getElementById("loginForm")?.addEventListener("submit", function(e){
-    e.preventDefault();
-    const email = e.target[0].value;
-    const password = e.target[1].value;
+function login(){
+alert("تم تسجيل الدخول إلى Nexora");
+}
 
-    fetch("https://YOUR_BACKEND_URL/api/login", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({ email, password })
-    })
-    .then(res => res.json())
-    .then(data => {
-        if(data.success){
-            localStorage.setItem("token", data.token);
-            window.location.href = "dashboard.html";
-        } else {
-            alert("Login failed: " + data.message);
-        }
-    })
-    .catch(err => alert("Error: " + err));
-});
+function openBot(){
+alert("مرحباً بك في المساعد الذكي Nexora AI");
+}
 
-document.getElementById("registerForm")?.addEventListener("submit", function(e){
-    e.preventDefault();
-    const name = e.target[0].value;
-    const email = e.target[1].value;
-    const password = e.target[2].value;
+const canvas = document.getElementById("bg");
+const ctx = canvas.getContext("2d");
 
-    fetch("https://YOUR_BACKEND_URL/api/register", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({ name, email, password })
-    })
-    .then(res => res.json())
-    .then(data => {
-        if(data.success){
-            alert("Account created! Please login.");
-            window.location.href = "index.html";
-        } else {
-            alert("Registration failed: " + data.message);
-        }
-    })
-    .catch(err => alert("Error: " + err));
-});
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+for(let i=0;i<120;i++){
+
+ctx.beginPath();
+
+ctx.arc(
+Math.random()*canvas.width,
+Math.random()*canvas.height,
+2,
+0,
+Math.PI*2
+);
+
+ctx.fillStyle="rgba(255,255,255,0.3)";
+ctx.fill();
+
+}
