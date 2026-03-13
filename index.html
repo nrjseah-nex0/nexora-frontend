@@ -3,57 +3,82 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexora Login</title>
 
-<title>Nexora Platform</title>
+<style>
 
-<meta name="description" content="منصة Nexora الذكية لإدارة وتحليل المتاجر">
-<meta name="keywords" content="Nexora, AI, متجر إلكتروني, تحليل متجر">
-<meta name="author" content="Nexora">
-<meta name="robots" content="index, follow">
+body{
+font-family:Arial;
+background:linear-gradient(135deg,#6a5cff,#8e7dff);
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
 
-<meta property="og:title" content="Nexora AI Platform">
-<meta property="og:description" content="منصة ذكية لإدارة المتاجر وتحليل الأداء">
-<meta property="og:type" content="website">
+.card{
 
-<link rel="stylesheet" href="style.css">
+background:rgba(255,255,255,0.15);
+padding:40px;
+border-radius:15px;
+width:300px;
+text-align:center;
+backdrop-filter:blur(10px);
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
+}
 
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-XXXXXXXX');
-</script>
+input{
+
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:10px;
+
+}
+
+button{
+
+width:100%;
+padding:12px;
+border:none;
+border-radius:10px;
+background:#4f6df5;
+color:white;
+font-size:16px;
+cursor:pointer;
+
+}
+
+</style>
 
 </head>
 
 <body>
 
-<canvas id="bg"></canvas>
+<div class="card">
 
-<div class="login-box">
+<h2>NEXORA</h2>
+<p>تسجيل الدخول</p>
 
-<h1 class="logo">NEXORA</h1>
+<input id="email" placeholder="البريد الالكتروني">
 
-<p class="subtitle">تسجيل الدخول</p>
-
-<input type="email" placeholder="البريد الإلكتروني">
-
-<input type="password" placeholder="كلمة المرور">
+<input id="password" type="password" placeholder="كلمة المرور">
 
 <button onclick="login()">تسجيل الدخول</button>
 
 </div>
 
-<div id="assistant">
+<script>
 
-<button onclick="openBot()">💬 المساعد</button>
+async function login(){
 
-</div>
+const email = document.querySelector("#email").value
+const password = document.querySelector("#password").value
 
-<script src="app.js"></script>
+const res = await fetch("/login",{
 
-</body>
-</html>
+method:"POST",
+
+headers:{
+"Content-Type
