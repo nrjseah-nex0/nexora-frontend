@@ -1,0 +1,148 @@
+<!DOCTYPE html><html lang="ar">
+<head><meta charset="UTF-8">
+<title>Nexora AI Campaign Studio</title><style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#0b0b0b;
+color:white;
+}
+
+.header{
+padding:25px;
+text-align:center;
+border-bottom:1px solid #d4af37;
+}
+
+.header h1{
+color:#d4af37;
+}
+
+.search-box{
+text-align:center;
+margin-top:40px;
+}
+
+input{
+width:350px;
+padding:12px;
+border-radius:8px;
+border:none;
+margin-right:10px;
+}
+
+button{
+padding:12px 20px;
+background:#d4af37;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+.results{
+margin-top:40px;
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+justify-content:center;
+}
+
+.card{
+background:#151515;
+padding:20px;
+border-radius:10px;
+width:260px;
+border:1px solid #d4af37;
+text-align:center;
+}
+
+.card img{
+width:100%;
+border-radius:8px;
+}
+
+.video{
+margin-top:30px;
+text-align:center;
+}
+
+textarea{
+width:80%;
+height:120px;
+border-radius:10px;
+padding:10px;
+border:none;
+}
+
+</style></head><body><div class="header">
+<h1>🤖 Nexora Campaign AI</h1>
+<p>أنشئ حملة تسويقية خلال ثواني</p>
+</div><div class="search-box"><input id="idea" placeholder="اكتب فكرة الحملة مثال: حملة عطر فاخر"><button onclick="generate()">إنشاء الحملة</button>
+
+</div><div class="results" id="images"></div><div class="video" id="video"></div><div class="video" id="text"></div><script>
+
+function generate(){
+
+let idea=document.getElementById("idea").value
+
+if(!idea){
+
+alert("اكتب فكرة الحملة أولاً")
+
+return
+
+}
+
+/* صور الحملة */
+
+document.getElementById("images").innerHTML=`
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539">
+<p>صورة إعلان 1</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f">
+<p>صورة إعلان 2</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd">
+<p>صورة إعلان 3</p>
+</div>
+
+`
+
+/* فيديو الحملة */
+
+document.getElementById("video").innerHTML=`
+
+<h2>🎬 فكرة فيديو إعلان</h2>
+
+<p>فيديو قصير يظهر المنتج بإضاءة فخمة مع موسيقى هادئة ونص جذاب.</p>
+
+`
+
+/* نص الإعلان */
+
+document.getElementById("text").innerHTML=`
+
+<h2>📝 نص الإعلان</h2>
+
+<textarea>
+
+اكتشف الفخامة في كل لحظة ✨
+
+منتج صُمم ليمنحك تجربة لا تُنسى.
+
+اطلب الآن وتمتع بالأناقة الحقيقية.
+
+#تسوق #عرض #منتجات_مميزة
+
+</textarea>`
+
+}
+
+</script></body></html>
