@@ -1,84 +1,32 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-
 <meta charset="UTF-8">
-<title>Nexora Login</title>
-
-<style>
-
-body{
-font-family:Arial;
-background:linear-gradient(135deg,#6a5cff,#8e7dff);
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-}
-
-.card{
-
-background:rgba(255,255,255,0.15);
-padding:40px;
-border-radius:15px;
-width:300px;
-text-align:center;
-backdrop-filter:blur(10px);
-
-}
-
-input{
-
-width:100%;
-padding:12px;
-margin:10px 0;
-border:none;
-border-radius:10px;
-
-}
-
-button{
-
-width:100%;
-padding:12px;
-border:none;
-border-radius:10px;
-background:#4f6df5;
-color:white;
-font-size:16px;
-cursor:pointer;
-
-}
-
-</style>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXORA | منصة SaaS للتجارة الإلكترونية</title>
+<meta name="description" content="NEXORA: إدارة وتحليل متاجر الإلكترونية مع أدوات ذكاء اصطناعي وتقارير مالية متقدمة">
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div class="card">
+<div class="stars"></div>
+<div class="twinkling"></div>
 
-<h2>NEXORA</h2>
-<p>تسجيل الدخول</p>
+<div class="container">
+  <h1>NEXORA Platform</h1>
+  <p>إدارة متجرك الإلكتروني وتحليل الأداء وتحسين المبيعات</p>
 
-<input id="email" placeholder="البريد الالكتروني">
-
-<input id="password" type="password" placeholder="كلمة المرور">
-
-<button onclick="login()">تسجيل الدخول</button>
-
+  <div class="buttons">
+    <a href="dashboard.html"><button>لوحة تحليلات المتجر</button></a>
+    <a href="campaigns.html"><button>الحملات التسويقية</button></a>
+    <a href="customers.html"><button>الزبائن والطلبات</button></a>
+    <a href="ai-tools.html"><button>أدوات الذكاء الاصطناعي</button></a>
+    <a href="subscription.html"><button>الاشتراك</button></a>
+    <a href="meta-seo.html"><button>SEO وMeta</button></a>
+    <a href="about.html"><button>من نحن</button></a>
+    <a href="blog.html"><button>نصائح للتجار</button></a>
+    <a href="terms.html"><button>تعليمات المنصة</button></a>
+  </div>
 </div>
-
-<script>
-
-async function login(){
-
-const email = document.querySelector("#email").value
-const password = document.querySelector("#password").value
-
-const res = await fetch("/login",{
-
-method:"POST",
-
-headers:{
-"Content-Type
+</body>
+</html>

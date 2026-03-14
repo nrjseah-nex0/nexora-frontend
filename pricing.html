@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="ar">
+<head><meta charset="UTF-8">
+<title>Nexora Plans</title><style>
+
+body{
+background:#0a0a0a;
+color:#d4af37;
+font-family:Arial;
+margin:0;
+}
+
+.top{
+background:#111;
+padding:20px;
+text-align:center;
+}
+
+.container{
+padding:40px;
+display:flex;
+gap:20px;
+justify-content:center;
+}
+
+.plan{
+background:#111;
+border:1px solid #d4af37;
+border-radius:10px;
+padding:30px;
+width:250px;
+text-align:center;
+}
+
+.price{
+font-size:28px;
+margin:20px 0;
+}
+
+button{
+background:#d4af37;
+border:none;
+padding:10px 20px;
+border-radius:6px;
+cursor:pointer;
+}
+
+</style></head><body><div class="top"><h1>خطط Nexora</h1></div><div class="container"><div class="plan"><h2>الخطة المجانية</h2><div class="price">0 ريال</div><p>حملتين تسويق</p>
+<p>تحليلات أساسية</p>
+<p>AI محدود</p><button onclick="selectPlan('free')">اختيار</button>
+
+</div><div class="plan"><h2>الخطة الاحترافية</h2><div class="price">49 ريال</div><p>حملات غير محدودة</p>
+<p>تحليلات متقدمة</p>
+<p>AI كامل</p><button onclick="selectPlan('pro')">اشتراك</button>
+
+</div><div class="plan"><h2>الخطة المتقدمة</h2><div class="price">99 ريال</div><p>إعلانات AI</p>
+<p>فيديوهات تلقائية</p>
+<p>إدارة تسويق كاملة</p><button onclick="selectPlan('premium')">اشتراك</button>
+
+</div></div><script>
+
+function selectPlan(plan){
+
+localStorage.setItem("nexora_plan",plan)
+
+alert("تم اختيار الخطة: " + plan)
+
+}
+
+</script></body></html>

@@ -1,212 +1,77 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-
 <meta charset="UTF-8">
-<title>Nexora Dashboard</title>
-
-<style>
-
-body{
-margin:0;
-font-family:Arial;
-background:#f4f6fb;
-display:flex;
-}
-
-.sidebar{
-
-width:220px;
-background:#6a5cff;
-color:white;
-height:100vh;
-padding:20px;
-
-}
-
-.sidebar h2{
-margin-bottom:30px;
-}
-
-.sidebar button{
-
-display:block;
-width:100%;
-padding:12px;
-margin:10px 0;
-border:none;
-background:transparent;
-color:white;
-text-align:right;
-cursor:pointer;
-
-}
-
-.main{
-
-flex:1;
-padding:30px;
-
-}
-
-.card{
-
-background:white;
-padding:20px;
-border-radius:12px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-margin-bottom:20px;
-
-}
-
-input{
-
-padding:10px;
-margin:5px;
-}
-
-</style>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لوحة تحليلات المتجر | NEXORA</title>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div class="sidebar">
+<div class="stars"></div>
+<div class="twinkling"></div>
 
-<h2>NEXORA</h2>
+<div class="container">
+<h1>لوحة تحليلات المتجر</h1>
+<p>عرض الأداء المالي والتجاري للمتجر</p>
 
-<button onclick="showSection('overview')">🏠 الملخص</button>
-
-<button onclick="showSection('products')">📦 المنتجات</button>
-
-<button onclick="showSection('orders')">🛒 الطلبات</button>
-
-<button onclick="showSection('analytics')">📊 التحليلات</button>
-
-<button onclick="showSection('ai')">🤖 المساعد</button>
-
-<button onclick="logout()">تسجيل الخروج</button>
-
+<!-- Cards الأرباح والأداء -->
+<div class="stats">
+<div class="stat-card">
+<h2>الأرباح الشهرية</h2>
+<p>$12,450</p>
+<img src="assets/images/profit.png" alt="Profit">
 </div>
 
-<div class="main">
-
-<div id="overview" class="card">
-
-<h2>ملخص المتجر</h2>
-
-<p>عدد المنتجات: <span id="productCount">0</span></p>
-
-<p>عدد الطلبات: 0</p>
-
-<p>المبيعات: $0</p>
-
+<div class="stat-card">
+<h2>الطلبات المكتملة</h2>
+<p>3,420</p>
+<img src="assets/images/orders.png" alt="Orders">
 </div>
 
-<div id="products" class="card" style="display:none">
-
-<h2>إضافة منتج</h2>
-
-<input id="name" placeholder="اسم المنتج">
-
-<input id="price" placeholder="السعر">
-
-<input id="image" placeholder="رابط الصورة">
-
-<button onclick="addProduct()">إضافة</button>
-
+<div class="stat-card">
+<h2>أعلى المنتجات مبيعًا</h2>
+<p>جلابيات رمضان</p>
+<img src="assets/images/top-products.png" alt="Top Products">
+</div>
 </div>
 
-<div id="orders" class="card" style="display:none">
-
-<h2>الطلبات</h2>
-
-<p>لا توجد طلبات بعد</p>
-
+<!-- محاسب مالي -->
+<div class="finance-section">
+<h2>المحاسب المالي الذكي</h2>
+<p>يحسب الأرباح والالتزامات ويقدم نصائح لتحسين الأداء.</p>
+<div class="stat-card">
+<h3>إجمالي الأرباح</h3>
+<p>$124,500</p>
+</div>
+<div class="stat-card">
+<h3>الالتزامات</h3>
+<p>$45,300</p>
+</div>
+<div class="stat-card">
+<h3>الاحتياجات القادمة</h3>
+<p>تجديد المخزون، عروض رمضان</p>
+</div>
 </div>
 
-<div id="analytics" class="card" style="display:none">
-
-<h2>تحليلات المتجر</h2>
-
-<p>سيتم إضافة التحليلات لاحقاً</p>
-
+<!-- Reports متجاوبة -->
+<div class="report-section">
+<h2>تقارير العملاء</h2>
+<p>نظرة شاملة لأكثر من 5000 عميل</p>
+<table>
+<tr><th>اسم العميل</th><th>الطلب</th><th>القيمة</th><th>الحالة</th></tr>
+<tr><td>أميرة</td><td>جلابية رمضان</td><td>$150</td><td>مكتمل</td></tr>
+<tr><td>محمد</td><td>فستان سهرة</td><td>$200</td><td>قيد الشحن</td></tr>
+<tr><td>سارة</td><td>مستحضرات تجميل</td><td>$75</td><td>مكتمل</td></tr>
+<tr><td>زيد</td><td>أكسسوارات</td><td>$45</td><td>قيد الشحن</td></tr>
+</table>
 </div>
 
-<div id="ai" class="card" style="display:none">
-
-<h2>المساعد الذكي</h2>
-
-<input id="aiInput" placeholder="اسأل المساعد">
-
-<button onclick="ai()">اسأل</button>
-
-<p id="aiResult"></p>
-
+<div class="buttons">
+<a href="index.html"><button>الرئيسية</button></a>
+<a href="campaigns.html"><button>الحملات التسويقية</button></a>
 </div>
 
 </div>
-
-<script>
-
-function showSection(section){
-
-document.querySelectorAll(".card").forEach(c=>{
-
-c.style.display="none"
-
-})
-
-document.getElementById(section).style.display="block"
-
-}
-
-function logout(){
-
-localStorage.removeItem("user")
-
-window.location="index.html"
-
-}
-
-async function addProduct(){
-
-const name=document.getElementById("name").value
-const price=document.getElementById("price").value
-const image=document.getElementById("image").value
-
-const res=await fetch("/add-product",{
-
-method:"POST",
-
-headers:{
-"Content-Type":"application/json"
-},
-
-body:JSON.stringify({name,price,image})
-
-})
-
-alert("تم إضافة المنتج")
-
-}
-
-function ai(){
-
-const q=document.getElementById("aiInput").value
-
-document.getElementById("aiResult").innerText=
-"المساعد: سنضيف الذكاء الاصطناعي قريباً"
-
-}
-
-if(!localStorage.getItem("user")){
-
-window.location="index.html"
-
-}
-
-</script>
-
 </body>
 </html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+
+<meta charset="UTF-8">
+<title>ربط متجر سلة</title>
+
+<style>
+
+body{
+font-family:Arial;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+background:#f4f6fb;
+}
+
+button{
+
+padding:15px 25px;
+font-size:18px;
+background:#5c67f2;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<button onclick="connect()">ربط متجر سلة</button>
+
+<script>
+
+function connect(){
+
+window.location=
+"https://accounts.salla.sa/oauth2/auth?response_type=code&client_id=CLIENT_ID&scope=offline_access&redirect_uri=https://YOURDOMAIN/api/salla/callback"
+
+}
+
+</script>
+
+</body>
+</html>
