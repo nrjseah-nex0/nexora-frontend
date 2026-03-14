@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="ar">
 <head><meta charset="UTF-8">
-<title>Nexora AI Campaign Studio</title><style>
+<title>Nexora Ads Studio</title><style>
 
 body{
 margin:0;
@@ -10,8 +10,8 @@ color:white;
 }
 
 .header{
-padding:25px;
 text-align:center;
+padding:30px;
 border-bottom:1px solid #d4af37;
 }
 
@@ -19,9 +19,9 @@ border-bottom:1px solid #d4af37;
 color:#d4af37;
 }
 
-.search-box{
+.search{
 text-align:center;
-margin-top:40px;
+margin-top:30px;
 }
 
 input{
@@ -29,18 +29,18 @@ width:350px;
 padding:12px;
 border-radius:8px;
 border:none;
-margin-right:10px;
 }
 
 button{
-padding:12px 20px;
+padding:12px 18px;
 background:#d4af37;
 border:none;
 border-radius:8px;
+margin-left:10px;
 cursor:pointer;
 }
 
-.results{
+.gallery{
 margin-top:40px;
 display:flex;
 flex-wrap:wrap;
@@ -49,10 +49,10 @@ justify-content:center;
 }
 
 .card{
+width:250px;
 background:#151515;
-padding:20px;
+padding:15px;
 border-radius:10px;
-width:260px;
 border:1px solid #d4af37;
 text-align:center;
 }
@@ -62,7 +62,17 @@ width:100%;
 border-radius:8px;
 }
 
+.card button{
+margin-top:10px;
+width:100%;
+}
+
 .video{
+text-align:center;
+margin-top:40px;
+}
+
+.textbox{
 margin-top:30px;
 text-align:center;
 }
@@ -75,12 +85,19 @@ padding:10px;
 border:none;
 }
 
-</style></head><body><div class="header">
-<h1>🤖 Nexora Campaign AI</h1>
-<p>أنشئ حملة تسويقية خلال ثواني</p>
-</div><div class="search-box"><input id="idea" placeholder="اكتب فكرة الحملة مثال: حملة عطر فاخر"><button onclick="generate()">إنشاء الحملة</button>
+.social{
+margin-top:20px;
+}
 
-</div><div class="results" id="images"></div><div class="video" id="video"></div><div class="video" id="text"></div><script>
+.social button{
+background:#222;
+color:white;
+margin:5px;
+}
+
+</style></head><body><div class="header"><h1>🤖 Nexora Ads Studio</h1><p>أنشئ حملة تسويقية خلال ثواني</p></div><div class="search"><input id="idea" placeholder="مثال: حملة لعطر فاخر"><button onclick="generate()">إنشاء الحملة</button>
+
+</div><div class="gallery" id="images"></div><div class="video" id="video"></div><div class="textbox" id="text"></div><script>
 
 function generate(){
 
@@ -88,44 +105,61 @@ let idea=document.getElementById("idea").value
 
 if(!idea){
 
-alert("اكتب فكرة الحملة أولاً")
+alert("اكتب فكرة الحملة")
 
 return
 
 }
 
-/* صور الحملة */
-
 document.getElementById("images").innerHTML=`
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539">
-<p>صورة إعلان 1</p>
+<button onclick="download()">تحميل الصورة</button>
 </div>
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f">
-<p>صورة إعلان 2</p>
+<button onclick="download()">تحميل الصورة</button>
 </div>
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd">
-<p>صورة إعلان 3</p>
+<button onclick="download()">تحميل الصورة</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30">
+<button onclick="download()">تحميل الصورة</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1585386959984-a41552231658">
+<button onclick="download()">تحميل الصورة</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519">
+<button onclick="download()">تحميل الصورة</button>
 </div>
 
 `
-
-/* فيديو الحملة */
 
 document.getElementById("video").innerHTML=`
 
 <h2>🎬 فكرة فيديو إعلان</h2>
 
-<p>فيديو قصير يظهر المنتج بإضاءة فخمة مع موسيقى هادئة ونص جذاب.</p>
+<p>
+
+لقطة لعطر على خلفية سوداء فخمة مع دخان خفيف وإضاءة ذهبية.
+
+مدة الفيديو: 15 ثانية.
+
+نص الفيديو: "الفخامة تبدأ من هنا".
+
+</p>
 
 `
-
-/* نص الإعلان */
 
 document.getElementById("text").innerHTML=`
 
@@ -135,13 +169,25 @@ document.getElementById("text").innerHTML=`
 
 اكتشف الفخامة في كل لحظة ✨
 
-منتج صُمم ليمنحك تجربة لا تُنسى.
+عطر يجمع بين الأناقة والجاذبية.
 
-اطلب الآن وتمتع بالأناقة الحقيقية.
+اطلب الآن واستمتع بتجربة لا تُنسى.
 
-#تسوق #عرض #منتجات_مميزة
+#عطور #أناقة #تسوق
 
-</textarea>`
+</textarea><div class="social"><button>نشر على Instagram</button>
+
+<button>نشر على TikTok</button>
+
+<button>نشر على Facebook</button>
+
+</div>`
+
+}
+
+function download(){
+
+alert("سيتم تحميل الصورة")
 
 }
 
